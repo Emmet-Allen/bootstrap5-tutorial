@@ -1,0 +1,1184 @@
+﻿<!--        Differences between Bootstrap 5 compared to Bootstrap 4
+
+
+    - jQuery isn't required anymore (can still use jQuery methods if you wish)
+
+    - Dropped support for Internet Explorer
+
+    - The use of JavaScript is minimized in favor of CSS (CSS custom properties)
+
+    - Almost each option is available as data-attribute (it can be set manually without JS)
+
+    - Enhanced Grid System (Core of Bootstrap)
+
+            - Introduced 'xxl'
+
+            - '.gutter' classes have been replaced with '.g*' utilities
+
+            - Form layout options have been replaced with the new grid system
+
+            - Vertical spacing classes have been added
+
+            - Columns are no longer 'position: relative' by default
+
+    - Enhanced Modularity
+
+    - Enhanced Customization
+
+    - New Components/Helpers/Utilities/Variations
+
+            - New properties for numerous classes
+
+            - Updated Forms to a single set of form controls, much more consistent look and feel
+
+    - Some components were removed (i.e. Jumbotron)
+
+    - Enhanced Icons (SVG Icon Libary)
+
+
+
+    -->
+<!--                              Whats new in Bootstrap 5
+
+    - As far as components are concerned, there are no major changes; however implementation change drastically
+
+    - New Bootstrap is much better organized, it's modular and easily customizable
+
+    - And foremost - it's much easier to learn and use for developers
+
+
+    -->
+<!--                                 Grid System
+
+    - The Bootstrap Grid System allows users to create responsive layout.
+
+    - We can use it to rearrange layout of the website depending on it's screen size
+
+    - Using Bootstrap Grid System, we can create pages which will have different layouts on desktop, tablet, and mobile devices
+
+    - In order to create layouts we use:
+        - Containers: Containers hold rows
+        - Rows: Rows hold Columns
+        - Columns: Where you place your information
+
+    -   Breakpoints define when the grid layout should adjust to the pixel size of the viewing port
+
+
+                                    Breakpoints
+
+    Breakpont                       Class infix                         Dimensions
+
+    X-Small                             N/A                             0-576px
+
+    Small                               'sm'                            >=576px
+
+    Medium                              'md'                            >=768px
+
+    Large                               'lg'                            >=992px
+
+    Extra Large                         'xl'                            >=1200px
+
+    Extra Extra Large                   'xxl'                           >=1400px
+
+
+    -->
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Bootstrap 5 Crash Course</title>
+    <link rel=" stylesheet" href="css/bootstrap.css" />
+
+    <style>
+        [class*="col"]{
+            padding: 1rem;
+            background-color: #33b5e5;
+            border: 2px solid #fff;
+            text-align: center;
+        }
+
+        [class*="con"]{
+            padding: 1rem;
+            background-color: #fff;
+            border: 2px solid #fff;
+            color: #fff;
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>Hello Bootstrap World</h1>
+
+
+
+    <div class="container-md"></div>
+    <div class="row">
+        <div class="col-sm">1</div>
+        <div class="col-sm">2</div>
+        <div class="col-sm">3</div>
+        <div class="row">
+            <div class="col-sm">1</div>
+            <div class="col-sm">2</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">Main Content</div>
+            <!-- The 8 and 4 dictate the ratio it takes on the row by 12, i.e. Main Content takes up 8/12 spaces of the row-->
+            <div class="col-md-4">Sidebar</div>
+        </div>
+    </div>
+
+    <h2>Gutter</h2>
+
+    <div class="container px-4">
+        <div class="row gx-5">
+            <!-- gx-'#' changes the spacing of the inner padding of the elements, the lower the number the less space in the x axis-->
+            <div class="col">
+                <div class="p-3 border ">Custom column padding</div>
+            </div>
+            <div class="col">
+                <div class="p-3 border ">Custom column padding</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row gy-5">
+            <!-- gy-'#' changes the spacing of the inner padding of the elements, the lower the number the less space in the y axis-->
+            <div class="col-6">
+                1
+            </div>
+            <div class="col-6">
+                2
+            </div>
+            <div class="col-6">
+                3
+            </div>
+            <div class="col-6">
+                4
+            </div>
+        </div>
+    </div>
+
+    <!--                                    Buttons
+
+        - Have their own element tag of <button></button>
+
+        - Class names for btn first include 'btn', then a specific color of btn you want
+            i.e. class="btn btn-warning" produces a yellow button
+
+        - Can also include class:"btn-outline-'x'" to have only the outline of the button show
+            and when hovered on, the button fills in with that color
+
+        - We can easily enlarge or shrink buttons by including a 'btn-size' property to the button class
+            -i.e. class="btn btn-outline-primary btn-lg"
+
+        - We can also add a class property of 'disabled' to disable the functionality of a button
+
+    -->
+
+    <h1>Buttons</h1>
+
+
+    <button type="button" class="btn btn-primary">Primary</button>
+    <button type="button" class="btn btn-secondary">Secondary</button>
+    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" class="btn btn-danger">Danger</button>
+    <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-info">Info</button>
+    <button type="button" class="btn btn-light">Light</button>
+    <button type="button" class="btn btn-dark">Dark</button>
+
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-outline-success">Success</button>
+    <button type="button" class="btn btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-outline-info">Info</button>
+    <button type="button" class="btn btn-outline-light">Light</button>
+    <button type="button" class="btn btn-outline-dark">Dark</button>
+
+    <button type="button" class="btn btn-outline-primary btn-lg">Primary XL</button>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-primary btn-sm">Primary sm</button>
+
+    <button type="button" class="btn btn-outline-danger disabled">Disabled</button>
+
+    <br />
+    <br />
+
+    <!--                                    Cards
+
+        - To create a card, first create a 'div' with class "card"
+            i.e. <div class="card">
+
+        - Then create another div with a class 'card-body' within the 'card' div element
+            i.e. <div class="card-body">
+
+        - Cards sized can be controlled using in-line style(NOT RECOMMENDED) or by Bootstrap Grid(RECOMMENDED)
+
+        - We can place an image in the card by having an image tag element using class property "card-img-position"
+            i.e. <img class="card-img-bottom" src="...">
+
+        - We can create also create a horizontal card image, and cards with headers and footers
+
+        - To Change the color of cards place the property within the main card div class
+            i.e. <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+
+        - To add borders to the card, using the main 'card' div, insert a class property of 'border-color'
+            i.e. <div class="card border-primary text-white">
+
+        - The most useful card layout is by using card groups, these are used by wraping the card div element
+        with a seperate div with class "card-group"
+           i.e.  <div class="card-group my-3">
+
+
+        -->
+
+
+
+    <h1>Cards</h1>
+
+    <p>Card size controlled by styles</p>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum unde incidunt nobis doloremque
+            exercitationem nihil accusantium voluptatibus? Doloribus optio doloremque nihil veritatis, magni,
+            blanditiis modi dicta temporibus voluptates suscipit ab.
+        </div>
+    </div>
+
+    <p>Card size controlled by bootstrap grid:</p>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum unde incidunt nobis
+                    doloremque exercitationem nihil accusantium voluptatibus? Doloribus optio doloremque nihil
+                    veritatis, magni, blanditiis modi dicta temporibus voluptates suscipit ab.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <p>Card with image:</p>
+
+    <!-- 'mt' stands for margin top or 'my' for margin vertical adjusted to 3rems-->
+
+    <div class="card my-3" style="width: 18rem;">
+        <img class="card-img-top" src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg" alt="">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic ut dolore quia
+                officia earum nemo libero, culpa neque error! Provident, asperiores itaque. Ipsam molestiae deserunt
+                quo. Id pariatur repellat aperiam.
+            </p>
+        </div>
+    </div>
+
+    <p>Horizontal image card:</p>
+
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img class="img-fluid"
+                     src="https://images.unsplash.com/photo-1591192617272-64be39d91882?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=940&q=80"
+                     alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                        This is a wider card with supporting text below as a natural lead-in to additional
+                        content. This content is a little bit longer.
+                    </p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p>Card with header and footer:</p>
+
+
+    <div class="card my-3" style="width: 18rem;">
+        <div class="card-header">
+            Featured
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+    <p>Card colors:</p>
+
+    <!-- To color cards designate what you want to color and use the bootstrap color properties to attach the color to that property
+         'bg-primary' 'text-warning' or just simply state the white if you would like 'text-white' -->
+
+    <div class="card text-warning bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </p>
+        </div>
+    </div>
+    <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </p>
+        </div>
+    </div>
+
+    <p>Card borders:</p>
+
+
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">Primary card title</h5>
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </p>
+        </div>
+    </div>
+    <div class="card border-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body text-secondary">
+            <h5 class="card-title">Secondary card title</h5>
+            <p class="card-text">
+                Some quick example text to build on the card title and make up the bulk of the card's
+                content.
+            </p>
+        </div>
+    </div>
+
+    <p>Card groups:</p>
+
+    <div class="card-group my-3">
+        <div class="card">
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                    This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This card has even longer content than the first to show that equal height action.
+                </p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+
+    <!--                    Text Utilities
+
+        - Bootstrap supports all native HTML heading font sizes
+
+        - Bootstap also includes "h#" class property fonts to add to paragraph elements
+
+        - There is a "display-#" class that makes the text more virbose
+
+        - Blockquote tag element is used to indicate quotation of a large section of text,
+        like how news articles or blogs have certain quotes from their piece to emphasize main points
+
+        - Blockquotes have their own blockquote tag element
+         i.e.   <blockquote class="blockquote">
+
+        - <figure> element is used to contain a certain piece of text like a quote
+
+        - This is then captioned using the <figcaption> element and is cited with <cite> element wrapped within the
+            <figcaption>
+
+        - We can align the text of our elements by using a class property of "text-alignment_position"
+            i.e. <figure class="text-center"> or <h1 class="display-1 text-right">
+
+        - By default text is always aligned to left, can be aligned to right or center
+
+        - When creating list, the <ul> element wrapper comes styled BY DEFAULT
+
+        - To un-style the list add the class "list-unstyled" to the <ul> element
+
+    -->
+
+    <p>Typography</p>
+    <p>Heading</p>
+
+    <h1>h1 heading</h1>
+    <h2>h2 heading</h2>
+    <h3>h3 heading</h3>
+    <h4>h4 heading</h4>
+    <h5>h5 heading</h5>
+    <h6>h6 heading</h6>
+
+    <p class="h1">h1. Bootstrap heading</p>
+    <p class="h2">h2. Bootstrap heading</p>
+    <p class="h3">h3. Bootstrap heading</p>
+    <p class="h4">h4. Bootstrap heading</p>
+    <p class="h5">h5. Bootstrap heading</p>
+    <p class="h6">h6. Bootstrap heading</p>
+
+    <h1 class="display-1 text-right">Display 1</h1>
+    <h1 class="display-2 text-right">Display 2</h1>
+    <h1 class="display-3 text-right">Display 3</h1>
+    <h1 class="display-4 text-right">Display 4</h1>
+    <h1 class="display-5 text-right">Display 5</h1>
+    <h1 class="display-6 text-right">Display 6</h1>
+
+    <p>Inline text elements</p>
+
+    <p>You can use the mark tag to <mark>highlight</mark> text.</p> <!-- Can highlight text with <mark> element within text-->
+    <p><del>This line of text is meant to be treated as deleted text.</del></p> <!-- Deleted text can be replicated with text inside a <del> element-->
+    <p><s>This line of text is meant to be treated as no longer accurate.</s></p> <!--An <s> element for text that are no longer relevant-->
+    <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p> <!-- <ins> for additional text-->
+    <p><u>This line of text will render as underlined</u></p> <!-- Standard <u> for underlined text-->
+    <p><small>This line of text is meant to be treated as fine print.</small></p> <!-- <small> for 'fine print'-->
+    <p><strong>This line rendered as bold text.</strong></p> <!-- <strong> for 'bold text'-->
+    <p><em>This line rendered as italicized text.</em></p> <!-- <em> for 'emphasized text' -->
+
+    <p>Blockquotes</p>
+
+    <blockquote class="blockquote">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante
+    </blockquote>
+
+    <figure>
+        <!-- Figure Element to explain a certain piece-->
+        <blockquote class="blockquote">
+            <!-- Blockquote element with class 'blockquote'-->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            <!-- figcaption is used to caption the figure-->
+            Someone famous in <cite title="Source Title">Source Title</cite> <!-- cite tag is used to add emphasis of citation of source of figure-->
+        </figcaption>
+    </figure>
+
+    <p>Alignment</p>
+
+    <figure class="text-center">
+        <blockquote class="blockquote">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            Someone famous in <cite title="Source Title">Source Title</cite>
+        </figcaption>
+    </figure>
+
+    <p>Lists</p>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </ul>
+
+    <ul class="list-unstyled">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <ul>
+            <li>a</li>
+            <li>b</li>
+            <li>c</li>
+        </ul>
+    </ul>
+
+
+    <p>Inline</p>
+
+    <ul class="list-inline">
+        <!-- Use class property "list-inline" to line properties next to each other -->
+        <li class="list-inline-item">Item 1</li>
+        <li class="list-inline-item">Item 2</li>
+        <li class="list-inline-item">Item 3</li>
+    </ul>
+
+    <!--                                Images
+
+        - To have fluid images, use class property "img-fluid" to <img> elements
+            i.e. <img class="img-fluid rounded" src="..." alt="...">
+
+        - Class property "rounded" will have the corners of the image rounded
+
+        - Class property "float-left / float-right" will have the image float left or right of the screen
+
+        -
+
+        -->
+
+    <hr>
+    <h1>Responsive images</h1>
+
+    <p>Img fluid</p>
+    <div style="width: 40%; ">
+        <img class="img-fluid rounded" src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg">
+    </div>
+
+    <p>Img floats</p>
+    <div>
+        <img class="rounded float-right" src="https://mdbootstrap.com/img/Marketing/mdb-press-pack/mdb-dark.jpg">
+    </div>
+    <div class="clearfix"></div>
+
+
+    <!---                                   Spacing
+
+        - For spacing remember 'p' for padding and 'm' for margin
+
+        - We can add spacing to specific sides such as top or left using pt,pl,pb,pr
+
+        - Or we can add spacing to the x-axis or y-axix using 'mx' or 'my'
+
+        - For assigning values to spacing you want to add a breakpoint value to the margin or padding
+
+        - Then the number value is a certain rem value for the amount of padding or margin needed
+            i.e. <p class="mt-xl-3">
+
+        - We can also add "-auto" to 'mx/px' or 'my/py' spacing to automatically space the element
+
+        - Spacing Values:
+
+            0 - remove margin/paddings
+            1 - $spacer (1rem) * .25
+            2 - $spacer (1rem) * .5
+            3 - $spacer (1rem)
+            4 - $spacer (1rem) * 1.5
+            5 - $spacer (1rem) * 3
+
+
+
+        -->
+
+
+
+
+    <hr>
+    <h1>Spacing</h1>
+
+    <div class="p-5" style="width: 600px; margin: auto; border: 1px solid black;">
+        <p class="my-5">Paragraph 1</p>
+        <p>Paragraph 2</p>
+
+        <div class="mx-auto" style="width: 200px; background-color: #eee">
+            Centered element
+        </div>
+
+    </div>
+
+    <hr class="mt-5">
+
+
+    <!--                                    Tables
+
+        - We can use the <table> element to specify a table, then call upon the class property 'table'
+            and 'table-primary' or any other coloring element to color the table
+
+        -<tr> element stands for table-row and can also be customized with color class properties
+            'table-primary' etc...
+
+        - <td> element stands for table-data and can be colored with 'table-color' class properties
+
+        - 'table-striped' class property will zebra-stripe the elements in the table one row at a time
+
+        - 'table-dark' changes the theme of the table to that of a dark theme
+
+        - 'table-hover' makes it so that once a row is hovered upon, the elements will change color, default gray
+
+        - 'table-bordered' will create a table that has borders around its edges, and we can control color of
+            such borders using 'border-color' class property
+
+        - 'table-borderless' will remove all borders, even those set by default
+
+        -'table-size' will shrink or enlarge the table
+
+        - We can wrap a <table> element with a <div> element that includes property "table-responsive", to make
+        the table responsive to the viewport, we can also define a breaking point using "table-responsive-md"
+
+        -->
+
+
+    <h1 class="mb-5">Tables</h1>
+
+
+    <table class="table table-dark table-striped table-bordered border-secondary table-sm">
+        <thead>
+            <tr class="table table-success">
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Table responsive</h2>
+
+    <div class="table-responsive-md">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                    <th scope="col">Heading</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                    <td>Cell</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--                                Alerts
+
+        - Alerts are defined in the class of a <div> element with class property "alert"
+        and can be colored using "alert-color"
+
+        - role attribute defines the role of which a certain element has within the code
+
+        -->
+
+    <hr>
+    <h1>Alerts</h1>
+
+    <div class="alert alert-primary" role="alert">
+        A simple primary alert—check it out!
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        A simple secondary alert—check it out!
+    </div>
+    <div class="alert alert-success" role="alert">
+        A simple success alert—check it out!
+    </div>
+    <div class="alert alert-danger" role="alert">
+        A simple danger alert—check it out!
+    </div>
+    <div class="alert alert-warning" role="alert">
+        A simple warning alert—check it out!
+    </div>
+    <div class="alert alert-info" role="alert">
+        A simple info alert—check it out!
+    </div>
+    <div class="alert alert-light" role="alert">
+        A simple light alert—check it out!
+    </div>
+    <div class="alert alert-dark" role="alert">
+        A simple dark alert—check it out!
+    </div>
+
+    <!--                                Toast
+
+        - Define a <div> element with the class property "toast"
+
+        - To envoke a toast, we need to use Javascript
+
+        - First create an Array of toast using .slice method
+
+        - Then use the .map method on each items of the array to return a new object with
+        the 'bootstrap.Toast(Parameter)' object
+
+        - Then use Array[#].show() to evoke the array item you want to show
+
+        - You can have optional toast attributes "data-x" , x being either:
+            "data-animation" : Apply CSS fade transition    value = bool
+            "data-autohide" : Auto hide the toast           value = bool
+            "data-delay" : Delay hiding the toast(ms)       value = number
+
+        To be passed through the toast or use Javascript to manipulate values
+
+        - Postions can also be applied to the toast for better UI experience
+
+
+
+                                TOAST SCRIPT
+         <script>
+
+            let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+    let toastList = toastElList.map(function (toastEl) {
+
+      return new bootstrap.Toast(toastEl)
+    })
+
+    toastList[0].show()
+    </script
+
+
+        * IF ANYTHING REFER TO DOCS *
+
+        -->
+
+    <h2>Toast</h2>
+
+    <div id="toast" class="toast" data-animation="true" data-autohide="false" role="alert" aria-live="assertive"
+         aria-atomic="true" style="position: fixed; top: 10px; right: 10px;">
+        <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="toast-body">
+            Hello, world! This is a toast message.
+        </div>
+    </div>
+
+    <!--                                Caruousel
+
+        - Create a div with class property "carousel" and property "slide"
+
+        - Use the attribute data-ride and give it a property of "carousel"
+
+        - For more functionality of Carousel, and its functions search up docs
+
+
+        -->
+
+
+
+    <hr>
+    <h1>Carousel</h1>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(35).jpg" class="d-block w-100" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(33).jpg" class="d-block w-100" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" class="d-block w-100" alt="Image 3">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!--                                        ScrollSpy
+
+        - Shows a table of contents menu that adjust depending on where in the text a user is
+            currently viewing
+
+        - There are different variations that can be used, and are shown in the Docs
+
+        -->
+
+    <hr />
+    <h1>ScrollSpy</h1>
+
+
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="nav-link" href="#fat">@fat</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#mdo">@mdo</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#one">one</a>
+                    <a class="dropdown-item" href="#two">two</a>
+                    <div role="separator" class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#three">three</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+        <h4 id="fat">@fat</h4>
+        <p>
+            @fat
+            Ad leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+        </p>
+        <h4 id="mdo">@mdo</h4>
+        <p>Veniam marfa mustache skateboard, adipisicing fugiat velit pitchfork beard. Freegan beard aliqua cupidatat mcsweeney's vero. Cupidatat four loko nisi, ea helvetica nulla carles. Tattooed cosby sweater food truck, mcsweeney's quis non freegan vinyl. Lo-fi wes anderson +1 sartorial. Carles non aesthetic exercitation quis gentrify. Brooklyn adipisicing craft beer vice keytar deserunt.</p>
+        <h4 id="one">one</h4>
+        <p>Occaecat commodo aliqua delectus. Fap craft beer deserunt skateboard ea. Lomo bicycle rights adipisicing banh mi, velit ea sunt next level locavore single-origin coffee in magna veniam. High life id vinyl, echo park consequat quis aliquip banh mi pitchfork. Vero VHS est adipisicing. Consectetur nisi DIY minim messenger bag. Cred ex in, sustainable delectus consectetur fanny pack iphone.</p>
+        <h4 id="two">two</h4>
+        <p>n incididunt echo park, officia deserunt mcsweeney's proident master cleanse thundercats sapiente veniam. Excepteur VHS elit, proident shoreditch +1 biodiesel laborum craft beer. Single-origin coffee wayfarers irure four loko, cupidatat terry richardson master cleanse. Assumenda you probably haven't heard of them art party fanny pack, tattooed nulla cardigan tempor ad. Proident wolf nesciunt sartorial keffiyeh eu banh mi sustainable. Elit wolf voluptate, lo-fi ea portland before they sold out four loko. Locavore enim nostrud mlkshk brooklyn nesciunt.</p>
+        <h4 id="three">three</h4>
+        <p>
+            d leggings keytar, brunch id art party dolor labore. Pitchfork yr enim lo-fi before they sold out qui. Tumblr farm-to-table bicycle rights whatever. Anim keffiyeh carles cardigan. Velit seitan mcsweeney's photo booth 3 wolf moon irure. Cosby sweater lomo jean shorts, williamsburg hoodie minim qui you probably haven't heard of them et cardigan trust fund culpa biodiesel wes anderson aesthetic. Nihil tattooed accusamus, cred irony biodiesel keffiyeh artisan ullamco consequat.
+
+            Keytar twee blog, culpa messenger bag marfa whatever delectus food truck. Sapiente synth id assumenda. Locavore sed helvetica cliche irony, thundercats you probably haven't heard of them consequat hoodie gluten-free lo-fi fap aliquip. Labore elit placeat before they sold out, terry richardson proident brunch nesciunt quis cosby sweater pariatur keffiyeh ut helvetica artisan. Cardigan craft beer seitan readymade velit. VHS chambray laboris tempor veniam. Anim mollit minim commodo ullamco thundercats.
+        </p>
+    </div>
+
+    <hr>
+    <h1>Icons</h1>
+
+    <svg class="bi bi-alarm-fill" width="5rem" height="5rem" viewBox="0 0 16 16" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H9v1.07a7.002 7.002 0 0 1 3.537 12.26l.817.816a.5.5 0 0 1-.708.708l-.924-.925A6.967 6.967 0 0 1 8 16a6.967 6.967 0 0 1-3.722-1.07l-.924.924a.5.5 0 0 1-.708-.708l.817-.816A7.002 7.002 0 0 1 7 2.07V1H5.999a.5.5 0 0 1-.5-.5zM.86 5.387A2.5 2.5 0 1 1 4.387 1.86 8.035 8.035 0 0 0 .86 5.387zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1zm-5 4a.5.5 0 0 0-1 0v3.882l-1.447 2.894a.5.5 0 1 0 .894.448l1.5-3A.5.5 0 0 0 8.5 9V5z" />
+    </svg>
+
+    <svg class="bi bi-alt" width="5rem" height="5rem" viewBox="0 0 16 16" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M1 13.5a.5.5 0 0 0 .5.5h3.797a.5.5 0 0 0 .439-.26L11 3h3.5a.5.5 0 0 0 0-1h-3.797a.5.5 0 0 0-.439.26L5 13H1.5a.5.5 0 0 0-.5.5zm10 0a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5z" />
+    </svg>
+
+    <svg class="bi bi-toggles" width="5rem" height="5rem" viewBox="0 0 16 16" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M11.5 1h-7a2.5 2.5 0 0 0 0 5h7a2.5 2.5 0 0 0 0-5zm-7-1a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm0 9a3.5 3.5 0 1 0 0 7h7a3.5 3.5 0 1 0 0-7h-7zm7 6a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+        <path fill-rule="evenodd"
+              d="M8 3.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0zM4.5 6a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+    </svg>
+
+    <svg class="bi bi-bar-chart" width="5rem" height="5rem" viewBox="0 0 16 16" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+              d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5h-2v12h2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
+    </svg>
+
+    <svg class="bi bi-reply-all-fill" width="5rem" height="5rem" viewBox="0 0 16 16" fill="currentColor"
+         xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.079 11.9l4.568-3.281a.719.719 0 0 0 0-1.238L8.079 4.1A.716.716 0 0 0 7 4.719V6c-1.5 0-6 0-7 8 2.5-4.5 7-4 7-4v1.281c0 .56.606.898 1.079.62z" />
+        <path fill-rule="evenodd"
+              d="M10.868 4.293a.5.5 0 0 1 .7-.106l3.993 2.94a1.147 1.147 0 0 1 0 1.946l-3.994 2.94a.5.5 0 0 1-.593-.805l4.012-2.954a.493.493 0 0 1 .042-.028.147.147 0 0 0 0-.252.496.496 0 0 1-.042-.028l-4.012-2.954a.5.5 0 0 1-.106-.699z" />
+    </svg>
+
+    <hr>
+    <h2 class="my-5">Forms:</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Inputs</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3>Radio/checkboxes</h3>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Default checkbox
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                    Checked checkbox
+                </label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+                <label class="form-check-label" for="flexCheckIndeterminate">
+                    Indeterminate checkbox
+                </label>
+            </div>
+
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Default radio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Default checked radio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked disabled>
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Default checked radio
+                </label>
+            </div>
+
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                <label class="form-check-label" for="flexSwitchCheckChecked">Checked switch checkbox input</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckDisabled" disabled>
+                <label class="form-check-label" for="flexSwitchCheckDisabled">Disabled switch checkbox input</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
+                <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">
+                    Disabled checked switch checkbox
+                    input
+                </label>
+            </div>
+
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3" disabled>
+                <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"
+                       disabled>
+                <label class="form-check-label" for="inlineRadio3">3 (disabled)</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="my-5">Files</h3>
+
+            <div class="form-file">
+                <input type="file" class="form-file-input" id="customFile">
+                <label class="form-file-label" for="customFile">
+                    <span class="form-file-text">Choose file...</span>
+                    <span class="form-file-button">Browse</span>
+                </label>
+            </div>
+
+            <h3 class="my-5">Range</h3>
+            <label for="customRange1" class="form-label">Example range</label>
+            <input type="range" class="form-range" id="customRange1">
+
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="my-5">Validation</h3>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-4">
+                    <label for="validationCustom01" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustomUsername" class="form-label">Username</label>
+                    <div class="input-group">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                        <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please choose a username.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom03" class="form-label">City</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid city.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">State</label>
+                    <select class="form-select" id="validationCustom04" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>...</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid state.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom05" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="validationCustom05" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid zip.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    </div>
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script> <!-- Bootstrap 5 uses popper-->
+    <script src="js/bootstrap.js"></script>
+
+    <script>
+
+        let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        let toastList = toastElList.map(function (toastEl) {
+
+            return new bootstrap.Toast(toastEl)
+        })
+
+        toastList[0].show()
+
+    </script>
+
+
+</body>
+</html>
